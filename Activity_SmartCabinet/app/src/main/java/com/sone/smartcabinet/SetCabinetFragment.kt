@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.sone.smartcabinet.R
+import kotlinx.android.synthetic.main.fragment_set_cabinet.*
 
 
 class SetCabinetFragment : Fragment() {
@@ -16,4 +17,12 @@ class SetCabinetFragment : Fragment() {
         return inflater!!.inflate(R.layout.fragment_set_cabinet, container, false)
     }
 
+    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+        iBt_addCabinet.setOnClickListener {
+            val linePersonFragment = LinePersonFragment()
+            val fragmentTransaction = fragmentManager.beginTransaction()
+            fragmentTransaction.add(R.id.Layout_person,linePersonFragment)
+            fragmentTransaction.commit()
+        }
+    }
 }// Required empty public constructor

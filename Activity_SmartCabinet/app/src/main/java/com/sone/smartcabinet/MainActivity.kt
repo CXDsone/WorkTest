@@ -10,12 +10,11 @@ import com.sone.activity_smartcabinet.SetCabinetFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val fragment1 = AddPresonFragment()
-        addFragment(R.id.frame,fragment1)
+        addFragment(R.id.frame,fragment1,"")
 
         button.setOnClickListener {
             val fragment2 = SetCabinetFragment()
@@ -27,8 +26,8 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.func()
         fragmentTransaction.commit()
     }
-    fun AppCompatActivity.addFragment(frameId: Int, fragment: Fragment){
-        supportFragmentManager.inTransaction { add(frameId, fragment) }
+    fun AppCompatActivity.addFragment(frameId: Int, fragment: Fragment,text: String){
+        supportFragmentManager.inTransaction { add(frameId, fragment,text) }
     }
 
 
